@@ -14,8 +14,13 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const { query } = await searchParams;
+  const params = { search: query || null };
+
+  // * For cached data
   // const posts = await client.fetch(STARTUPS_QUERY);
-  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY });
+
+  // * For live data
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <div>
