@@ -3,11 +3,11 @@ import { formatDate } from "../lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
-interface Props {
-  post: any;
-}
+import { Startup, Author } from "@/sanity.types";
 
-const StartupCard = ({ post }: Props) => {
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _createdAt,
     views,
@@ -54,7 +54,7 @@ const StartupCard = ({ post }: Props) => {
         <img src={image} alt="Startup Image" className="mt-5" />
       </Link>
       <div className="flex-between mt-5 gap-3">
-        <Link href={`/?query=${category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
         <Button className="startup-card_btn" asChild>
