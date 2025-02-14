@@ -7,6 +7,7 @@ import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 // * For live data
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { auth } from "@/auth";
 
 export default async function Home({
   searchParams,
@@ -15,6 +16,7 @@ export default async function Home({
 }) {
   const { query } = await searchParams;
   const params = { search: query || null };
+  const session = await auth();
 
   // * For cached data
   // const posts = await client.fetch(STARTUPS_QUERY);
