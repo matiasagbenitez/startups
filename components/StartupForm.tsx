@@ -10,6 +10,7 @@ import { formSchema } from "@/lib/validation";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
+import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
   const [formValues, setFormValues] = useState({
@@ -21,6 +22,7 @@ const StartupForm = () => {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [pitch, setPitch] = useState("");
   const { toast } = useToast();
   const router = useRouter();
 
@@ -37,16 +39,25 @@ const StartupForm = () => {
         description: formData.get("description") as string,
         category: formData.get("category") as string,
         link: formData.get("link") as string,
-        pitch: formValues.pitch,
+        pitch,
       };
 
-      setFormValues(newFormValues); // Mantiene los valores en caso de error
+      setFormValues({ ...newFormValues, pitch });
 
       await formSchema.parseAsync(newFormValues);
 
-      // Si la validación es exitosa, seguir con la lógica de envío
+      const result = await createPitch(prevState, formData, pitch);
 
-      return { ...prevState, status: "SUCCESS" };
+      if (result.status == "SUCCESS") {
+        toast({
+          title: "Success",
+          description: "Your startup pitch has been created successfully",
+        });
+
+        router.push(`/startup/${result._id}`);
+      }
+
+      return result;
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
@@ -156,10 +167,8 @@ const StartupForm = () => {
           Pitch
         </label>
         <MDEditor
-          value={formValues.pitch}
-          onChange={(value) =>
-            setFormValues({ ...formValues, pitch: value || "" })
-          }
+          value={pitch}
+          onChange={(value) => setPitch(value as string)}
           id="pitch"
           preview="edit"
           height={300}
