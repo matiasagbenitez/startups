@@ -41,7 +41,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src="https://placehold.co/48x48"
+            src={author?.image || "https://placehold.co/48x48"}
             alt="Startup Image"
             className="rounded-full"
             width={48}
@@ -51,7 +51,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       </div>
       <Link href={`/startup/${_id}`}>
         <p className="startup-card_desc">{description}</p>
-        <img src={image} alt="Startup Image" className="mt-5" />
+        <img src={image} alt="Startup Image" className="startup-card_img" />
       </Link>
       <div className="flex-between mt-5 gap-3">
         <Link href={`/?query=${category?.toLowerCase()}`}>
