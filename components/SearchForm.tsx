@@ -9,6 +9,7 @@ const SearchForm = ({ query }: { query?: string }) => {
       <input
         type="text"
         name="query"
+        autoComplete="off"
         defaultValue={query}
         className="search-input"
         placeholder="Buscar ideas por título o autor"

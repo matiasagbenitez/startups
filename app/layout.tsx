@@ -19,7 +19,7 @@ const workSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PitchExpress",
+  title: "PitchExpress — Ideas de negocio",
   description: "Conoce y comparte ideas de negocio",
 };
 

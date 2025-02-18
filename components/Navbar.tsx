@@ -2,7 +2,7 @@ import React from "react";
 import { auth, signOut, signIn } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
-import { BadgePlus, GithubIcon, LogOut } from "lucide-react";
+import { BadgePlus, GithubIcon, LogOut, Rocket } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Navbar = async () => {
@@ -10,8 +10,12 @@ const Navbar = async () => {
   return (
     <div className="px-3 py-3 bg-white shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
-        <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={133} height={30} />
+        <Link href="/" className="flex items-center gap-2 text-black">
+          <Rocket className="size-6" />
+          <span className="text-xl font-bold">
+            Pitch
+            <span className="font-normal">Express</span>
+          </span>
         </Link>
         <div className="flex items-center gap-4 text-black">
           {session && session.user ? (

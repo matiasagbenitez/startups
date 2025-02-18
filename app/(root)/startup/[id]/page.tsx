@@ -39,7 +39,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <img
           src={post.image}
           alt="thumbnal"
-          className="w-full h-auto rounded-xl"
+          className="h-auto rounded-xl max-w-4xl mx-auto"
         />
 
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
