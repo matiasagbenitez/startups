@@ -32,7 +32,7 @@ const Navbar = async () => {
                   <LogOut className="size-5 sm:hidden text-red-700" />
                 </button>
               </form>
-              <Link href={`/profile/${session.user.id}`}>
+              <Link href={`/user/${session.id}`}>
                 <Avatar className="size-6">
                   <AvatarImage
                     src={session?.user?.image || ""}
