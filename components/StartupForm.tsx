@@ -51,7 +51,7 @@ const StartupForm = () => {
       if (result.status == "SUCCESS") {
         toast({
           title: "Success",
-          description: "Your startup pitch has been created successfully",
+          description: "¡Tu idea se ha enviado con éxito!",
         });
 
         router.push(`/startup/${result._id}`);
@@ -73,12 +73,12 @@ const StartupForm = () => {
 
       toast({
         title: "Error",
-        description: "An unexpected error has occurred",
+        description: "Un error ha ocurrido, por favor intenta de nuevo",
         variant: "destructive",
       });
       return {
         ...prevState,
-        error: "An unexpected error has occurred",
+        error: "Un error ha ocurrido, por favor intenta de nuevo",
         status: "ERROR",
       };
     }
@@ -93,7 +93,7 @@ const StartupForm = () => {
     <form action={formAction} className="startup-form">
       <div>
         <label htmlFor="title" className="startup-form_label">
-          Title
+          Título de la idea
         </label>
         <Input
           id="title"
@@ -103,14 +103,14 @@ const StartupForm = () => {
           value={formValues.title}
           onChange={handleInputChange}
           className="startup-form_input"
-          placeholder="Startup Title"
+          placeholder="Ingrese el título de su idea"
           autoComplete="off"
         />
         {errors.title && <p className="startup-form_error">{errors.title}</p>}
       </div>
       <div>
         <label htmlFor="description" className="startup-form_label">
-          Description
+          Descripción
         </label>
         <Textarea
           id="description"
@@ -119,7 +119,7 @@ const StartupForm = () => {
           value={formValues.description}
           onChange={handleInputChange}
           className="startup-form_textarea"
-          placeholder="Startup Description"
+          placeholder="Describa su idea en pocas palabras"
           autoComplete="off"
         />
         {errors.description && (
@@ -128,7 +128,7 @@ const StartupForm = () => {
       </div>
       <div>
         <label htmlFor="category" className="startup-form_label">
-          Category
+          Categoría
         </label>
         <Input
           id="category"
@@ -138,7 +138,7 @@ const StartupForm = () => {
           value={formValues.category}
           onChange={handleInputChange}
           className="startup-form_input"
-          placeholder="Startup Category (Tech, Health, etc)"
+          placeholder="Categoría de la idea (Ej. Tecnología, Educación)"
           autoComplete="off"
         />
         {errors.category && (
@@ -147,7 +147,7 @@ const StartupForm = () => {
       </div>
       <div>
         <label htmlFor="link" className="startup-form_label">
-          Image URL
+          URL de la imagen de la idea
         </label>
         <Input
           id="link"
@@ -157,7 +157,7 @@ const StartupForm = () => {
           value={formValues.link}
           onChange={handleInputChange}
           className="startup-form_input"
-          placeholder="Startup Image URL"
+          placeholder="URL de la imagen de la idea"
           autoComplete="off"
         />
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
@@ -175,7 +175,7 @@ const StartupForm = () => {
           style={{ borderRadius: 10, overflow: "hidden", marginTop: 10 }}
           textareaProps={{
             placeholder:
-              "Briefly describe your startup and what problem it solves",
+              "Escribe un pitch de tu idea, este es el mensaje que se mostrará en la página principal de la plataforma. Cuéntanos por qué tu idea es especial y por qué deberíamos apoyarla.",
           }}
           previewOptions={{
             disallowedElements: ["style"],
@@ -190,7 +190,7 @@ const StartupForm = () => {
         disabled={isPending}
       >
         <Send size={16} />
-        {isPending ? "Submitting..." : "Submit your pitch"}
+        {isPending ? "Enviando..." : "Enviar idea"}
       </Button>
     </form>
   );

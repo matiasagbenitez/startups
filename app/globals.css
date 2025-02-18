@@ -48,7 +48,7 @@
   }
 
   .pink_container {
-    @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
+    @apply w-full bg-primary min-h-[500px] pattern flex justify-center items-center flex-col py-10 px-6;
   }
 
   .tag {
@@ -120,7 +120,7 @@
 
   /* searchform */
   .search-form {
-    @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
+    @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-3xl text-[20px] mt-8 px-5 flex flex-row items-center gap-5;
   }
 
   .search-input {
@@ -149,7 +149,7 @@
   }
 
   .startup-card_btn {
-    @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
+    @apply rounded-xl bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
   }
 
   .startup-card_skeleton {
@@ -158,7 +158,7 @@
 
   /* startupform */
   .startup-form {
-    @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+    @apply max-w-2xl mx-auto bg-white my-10 space-y-4 px-6;
   }
 
   .startup-form_label {
@@ -166,11 +166,11 @@
   }
 
   .startup-form_input {
-    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-xl mt-3 placeholder:text-black-300 !important;
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-xl mt-2 placeholder:text-black-300 !important;
   }
 
   .startup-form_textarea {
-    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-xl mt-3 placeholder:text-black-300 !important;
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-xl mt-2 placeholder:text-black-300 !important;
   }
 
   .startup-form_error {
@@ -178,11 +178,11 @@
   }
 
   .startup-form_editor {
-    @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 !important;
+    @apply mt-2 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 !important;
   }
 
   .startup-form_btn {
-    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] !important;
+    @apply bg-primary border-[4px] border-black rounded-xl p-5 min-h-[70px] w-full font-bold text-[18px] !important;
   }
 
   /* view */
@@ -195,7 +195,7 @@
   }
 
   .category-tag {
-    @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full;
+    @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-lg;
   }
 
   .pattern {
@@ -218,4 +218,8 @@
 
 .w-md-editor-toolbar {
   padding: 10px !important;
+}
+
+.startup-tag {
+  @apply px-2 py-1 text-sm text-white bg-gray-600 rounded-lg;
 }
